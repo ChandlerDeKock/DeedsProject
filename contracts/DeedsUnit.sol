@@ -14,7 +14,7 @@ contract DeedsUnit {
        //the address which registered the contract - can be different to the owner
        address public registry_address;
 
-        //Creates a struct of the street address
+        //Creates a struct of the street address- a typical street address
         struct streetAddress {
             string addressLine1;
             string addressLine2;

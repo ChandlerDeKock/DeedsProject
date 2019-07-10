@@ -36,25 +36,25 @@ contract RightsRegistry {
         return rights.length;
     }
     //returns the particular right type
-    function getRightAt(uint rightIndex) public view 
-    returns (
-    	address holderEntity,
-    	address targetEntity,
-    	string memory rightsType,
-    	address rightsContract,
-    	string memory infoUrl,
-    	uint status,
-        uint startTime,
-        uint expireTime
-	) 
-    {
-        holderEntity = rights[rightIndex].holderEntity;
-        targetEntity = rights[rightIndex].targetEntity;
-        rightsType = rights[rightIndex].rightsType;
-        rightsContract = rights[rightIndex].rightsContract;
-        infoUrl = rights[rightIndex].infoUrl;
-        status = rights[rightIndex].status;
-        startTime = rights[rightIndex].startTime;
-        expireTime = rights[rightIndex].expireTime;
-    }
+    // function getRightAt(uint rightIndex) public view 
+    // returns (
+    // 	address holderEntity,
+    // 	address targetEntity,
+    // 	string memory rightsType,
+    // 	address rightsContract,
+    // 	string memory infoUrl,
+    // 	uint status,
+    //     uint startTime,
+    //     uint expireTime
+	// ) 
+    // {
+    //     holderEntity = rights[rightIndex].holderEntity;
+    //     targetEntity = rights[rightIndex].targetEntity;
+    //     rightsType = rights[rightIndex].rightsType;
+    //     rightsContract = rights[rightIndex].rightsContract;
+    //     infoUrl = rights[rightIndex].infoUrl;
+    //     status = rights[rightIndex].status;
+    //     startTime = rights[rightIndex].startTime;
+    //     expireTime = rights[rightIndex].expireTime;
+    // }
 }

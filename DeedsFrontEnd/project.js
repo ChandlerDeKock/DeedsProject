@@ -1,7 +1,7 @@
 var DarkTheme = document.getElementById("Dark")
 
 $(DarkTheme).click(function(){
-    console.log("Running");
+
     $("body").css( "background","Black");
   })
 

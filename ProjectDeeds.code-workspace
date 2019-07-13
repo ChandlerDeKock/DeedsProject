@@ -2,6 +2,10 @@
 	"folders": [
 		{
 			"path": "/Users/chandlerdekock/OneDrive - University of Cape Town/FinTech/FTC/DeedsProject"
+		},
+		{
+			"name": "juliet",
+			"path": "/home/juliet"
 		}
 	],
 	"settings": {}

@@ -2,12 +2,12 @@ var DarkTheme = document.getElementById("Dark")
 
 $(DarkTheme).click(function(){
 
-    $("body").css( "background","Black");
+    $("body").css( "background","Black")
+    $("body").css( "colour","White")
+    $("section").css("background","Black")
   })
 
-  var DarkCSS = {
-    "color":"Blue",
-    "background":"Gray"
-  }
-  
-  
+  function submit(){
+    var nameValue = document.getElementById("form").value;
+    console.log(nameValue)
+    }

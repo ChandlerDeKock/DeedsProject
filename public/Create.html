@@ -27,7 +27,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Indeed</a>
+      <a class="navbar-brand" href="index.html">Indeed Housing</a>
       <a class="btn btn-primary" id = "Dark" href="#">Dark Mode</a>
     </div>
   </nav>
@@ -46,10 +46,10 @@
 
     <!-- Form -->
     <section class="features-icons bg-light text-center">
-  <form>
+  <form id = "form">
       <div class="container">
         <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="email" class="form-control" id="exampleFormControlInput1" name = "email" placeholder="name@example.com">
       </div>
       <div class="container">
         <label for="exampleFormControlSelect1">What year will you buy your house?</label>
@@ -76,7 +76,7 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <button type="submit" class="btn btn-block btn-lg btn-primary">Create!</button>
+          <button type="submit" onclick="submit()" class="btn btn-block btn-lg btn-primary" id = "createbutton">Create!</button>
       </div>
     </form>
   </section>

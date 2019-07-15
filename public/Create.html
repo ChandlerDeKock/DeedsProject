@@ -49,34 +49,11 @@
   <section class="features-icons bg-light text-center">
     <form id="form">
       <div class="container">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
-          placeholder="name@example.com">
+        <label id="exampleFormControlInput1">Geolocation input</label>
+        <input  class="form-control" id="geoinput" name="geoinput"
+          placeholder="latitute, longitude">
       </div>
-      <div class="container">
-        <label for="exampleFormControlSelect1">What year will you buy your house?</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>2019</option>
-          <option>2020</option>
-          <option>2021</option>
-          <option>2022</option>
-          <option>2023</option>
-        </select>
-      </div>
-      <div class="container">
-        <label for="exampleFormControlSelect1">Which city do you live in?</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>Cape Town</option>
-          <option>Durban</option>
-          <option>Pretoria</option>
-          <option>Johannesberg</option>
-          <option>Port Elizibeth</option>
-        </select>
-      </div>
-      <div class="container">
-        <label for="exampleFormControlTextarea1">Tell us about the house you want to buy?</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
+    
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <button type="submit" onclick="submit()" class="btn btn-block btn-lg btn-primary"
           id="createbutton">Create!</button>
@@ -133,8 +110,8 @@
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
   <script src="project.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

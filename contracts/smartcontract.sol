@@ -9,11 +9,11 @@ contract titleDeeds{
 
     }
 
-    modifier OnlyOwner (_UserAddress, uint){
-        require(_UserAddress.address = address);
+    modifier OnlyOwner (address _UserAddress, uint){
+        require(_UserAddress = msg.sender);
     }
 
-    function edit()
+   // function edit();
   
     function setUser(string memory _name, string memory _last_name, uint _ID_NumberHash, uint _DOB, string memory _StreetAddress) public {
        name = _name;

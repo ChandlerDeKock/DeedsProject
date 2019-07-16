@@ -60,12 +60,12 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">ID Number</label>
             <div class="col-8">
-              <input type="number" class="form-control" id="inputEmail3" placeholder="South African ID Number">
+              <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="inputEmail3" placeholder="South African ID Number">
             </div>
           </div>
           <!--address-->
           <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Occupant Name</label>
+              <label for="inputEmail3" class="col-sm-2 col-form-label">House Address</label>
               <div class="col-1"> 
                 <input type="text" class="form-control" placeholder="Erf No.">
               </div>
@@ -77,8 +77,13 @@
               </div>
           </div>
         <!--DatePicker-->
-  
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Date of First Occupation</label>
+            <div class="col-sm-8">
+              <input type="date"  class="form-control col-2" name="bday" placeholder="Date">
             </div>
+          </div>
+          </div>
         </div>
 
         <!--submit button-->

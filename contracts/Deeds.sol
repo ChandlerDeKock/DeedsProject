@@ -6,7 +6,7 @@ contract DeedsUnit{
 
     event geoChanged(string indexed lat);
     
-    function createGeoLocation (string memory _latitue)public returns(uint){
+    function createGeoLocation (string memory _latitue)public{
         latitude = _latitue;
         emit geoChanged(latitude);
         

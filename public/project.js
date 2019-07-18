@@ -48,19 +48,19 @@ if (typeof web3 != "undefined"){
 		"type": "function"
 	}
 ]);
-	var User = userContract.at("0x5444d625f683d704fae0fddc761084dccfc09194");
+var User = userContract.at("0x5444d625f683d704fae0fddc761084dccfc09194");
 
 $("#createbutton").click(function createGeoLocation() {
   // get the basic information for a return test
   var _coord = $('#occname').val();
   User.createGeoLocation(_coord);
-  console.log("Hello world" + _coord);
+
 });
 
-var userEvent = User.geoChanged();
+var userEvent = User.geoChanged({fromBlock: 'latest'});
 userEvent.watch(function(error, result){
     if(!error){
-        alert(result);
+        alert(result.args.lat);
     }else{
         console.log(error);
     }

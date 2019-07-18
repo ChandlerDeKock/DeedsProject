@@ -2,14 +2,16 @@ pragma solidity ^0.5.0;
 
 contract DeedsUnit{
 
-     struct geoLocation{
-        string latitude;
+   string latitude;
+
+    event geoChanged(string indexed lat);
+    
+    function createGeoLocation (string memory _latitue)public{
+        latitude = _latitue;
+        emit geoChanged(latitude);
+        
     }
-    geoLocation[] geo;
-
-    function createGeoLocation(string memory _latitue) public returns(uint){
-
-        uint index = geo.push(geoLocation(_latitue));
-        return index;
+    function getGelocation () public view returns(string memory){
+        return latitude;
     }
 }

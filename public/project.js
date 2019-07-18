@@ -1,11 +1,11 @@
 if (typeof web3 != "undefined"){
-	web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
+	web3 = new Web3(web3.currentProvider);
 	console.log("metamask");
    } else {
-	web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
+	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 	console.log("not metamask");
    }
-   
+   web3.eth.defaultAccount = web3.eth.accounts[0];
    var userContract = web3.eth.contract([
 	{
 		"constant": false,
@@ -22,6 +22,18 @@ if (typeof web3 != "undefined"){
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "lat",
+				"type": "string"
+			}
+		],
+		"name": "geoChanged",
+		"type": "event"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "getGelocation",
@@ -34,18 +46,6 @@ if (typeof web3 != "undefined"){
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "lat",
-				"type": "string"
-			}
-		],
-		"name": "geoChanged",
-		"type": "event"
 	}
 ]);
 	var User = userContract.at("0x5444d625f683d704fae0fddc761084dccfc09194");
@@ -55,16 +55,13 @@ $("#createbutton").click(function createGeoLocation() {
   var _coord = $('#occname').val();
   User.createGeoLocation(_coord);
   console.log("Hello world" + _coord);
-  
- // alert("Your location is "  + _coord);
-  // if the name was not provided
 });
 
-// // // var userEvent = User.geoChanged();
-// // // userEvent.watch(function(error, result){
-// // //     if(!error){
-// // //         alert(result);
-// // //     }else{
-// // //         console.log(error);
-// // //     }
-// // // }); 
+var userEvent = User.geoChanged();
+userEvent.watch(function(error, result){
+    if(!error){
+        alert(result);
+    }else{
+        console.log(error);
+    }
+}); 

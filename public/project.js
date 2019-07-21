@@ -14,6 +14,24 @@ if (typeof web3 != "undefined"){
    //JSON representation of the contract -> need to fins a better way to import the document
    var userContract = web3.eth.contract([
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "getProperty",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -75,10 +93,28 @@ if (typeof web3 != "undefined"){
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getUser",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x910ba18a1e466e940b4a4ac892e8fede58278337");
+var User = userContract.at("0x296579531a3120cd1e6d14c538face9fe407add8");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -91,6 +127,7 @@ $("#createbutton").click(
 		var geoLocation = $("#geolocation").val();
 		var occupationDate = $("#occdate").val();
 		console.log( typeof(name) + typeof(IDNumber) + typeof(erfNo) + typeof(geoLocation) + typeof(occupationDate));
+		
 		User.registerUser(name, IDNumber, {gas: 6721975000});
 		User.registerProperty(erfNo, geoLocation, {gas: 6721975000});
 

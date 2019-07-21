@@ -33,5 +33,5 @@ contract titleDeeds{
     function transfer (uint _propertyIDtoTransfer, uint transferTo) public{
         require(msg.sender==users[properties[_propertyIDtoTransfer].ownerIDnumber].userAddress);
         properties[_propertyIDtoTransfer].ownerIDnumber = transferTo;
-    }  
+    }
 }

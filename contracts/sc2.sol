@@ -17,7 +17,7 @@ contract titleDeeds{
         uint ownerIDnumber;
     }
 
-    propertyIdentifier[] public properties; //array of properties made public because I have length method
+    propertyIdentifier[] publicProperties; //array of properties made public because I have length method
     mapping(address=> uint256) addressToUser;
     
     function registerUser(string memory _name, string memory _IDhash) public {
@@ -27,11 +27,11 @@ contract titleDeeds{
 
     function registerProperty (uint _erfNumber, string memory _geoloc, uint _ownerIDnumber) public {
         require(msg.sender==users[_ownerIDnumber].userAddress);
-        properties.push(propertyIdentifier(_erfNumber, _geoloc, _ownerIDnumber));
+        publicProperties.push(propertyIdentifier(_erfNumber, _geoloc, _ownerIDnumber));
 
     }   
     function transfer (uint _propertyIDtoTransfer, uint transferTo) public{
-        require(msg.sender==users[properties[_propertyIDtoTransfer].ownerIDnumber].userAddress);
-        properties[_propertyIDtoTransfer].ownerIDnumber = transferTo;
+        require(msg.sender==users[publicProperties[_propertyIDtoTransfer].ownerIDnumber].userAddress);
+        publicProperties[_propertyIDtoTransfer].ownerIDnumber = transferTo;
     }  
 }

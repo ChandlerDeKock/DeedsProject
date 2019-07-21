@@ -17,15 +17,19 @@ if (typeof web3 != "undefined"){
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_propertyIDtoTransfer",
+				"name": "_erfNumber",
 				"type": "uint256"
 			},
 			{
-				"name": "transferTo",
+				"name": "_geoloc",
+				"type": "string" 
+			},
+			{
+				"name": "_ownerIDnumber",
 				"type": "uint256"
 			}
 		],
-		"name": "transfer",
+		"name": "registerProperty",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -50,49 +54,18 @@ if (typeof web3 != "undefined"){
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "users",
-		"outputs": [
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "userAddress",
-				"type": "address"
-			},
-			{
-				"name": "IDhash",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_erfNumber",
+				"name": "_propertyIDtoTransfer",
 				"type": "uint256"
 			},
 			{
-				"name": "_geoloc",
-				"type": "string"
-			},
-			{
-				"name": "_ownerIDnumber",
+				"name": "transferTo",
 				"type": "uint256"
 			}
 		],
-		"name": "registerProperty",
+		"name": "transfer",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -124,10 +97,37 @@ if (typeof web3 != "undefined"){
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"name": "IDhash",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x5f8ff1c0cca4d0809d0a66ffefbc7c51ba2b4135");
+var User = userContract.at("0x5444d625f683d704fae0fddc761084dccfc09194");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(

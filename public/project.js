@@ -18,15 +18,11 @@ if (typeof web3 != "undefined"){
 		"inputs": [
 			{
 				"name": "_erfNumber",
-				"type": "uint256"
+				"type": "string"
 			},
 			{
 				"name": "_geoloc",
-				"type": "string" 
-			},
-			{
-				"name": "_ownerIDnumber",
-				"type": "uint256"
+				"type": "string"
 			}
 		],
 		"name": "registerProperty",
@@ -51,51 +47,6 @@ if (typeof web3 != "undefined"){
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_propertyIDtoTransfer",
-				"type": "uint256"
-			},
-			{
-				"name": "transferTo",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "properties",
-		"outputs": [
-			{
-				"name": "erfNumber",
-				"type": "uint256"
-			},
-			{
-				"name": "geoloc",
-				"type": "string"
-			},
-			{
-				"name": "ownerIDnumber",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -127,7 +78,7 @@ if (typeof web3 != "undefined"){
 	}
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x5444d625f683d704fae0fddc761084dccfc09194");
+var User = userContract.at("0x910ba18a1e466e940b4a4ac892e8fede58278337");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -137,11 +88,11 @@ $("#createbutton").click(
 		var name = $("#occupantname").val();
 		var IDNumber = web3.sha3($("#idnumber").val());
 		var erfNo = $("#erfno").val();
-		var geoLocation = $("#gelocation").val();
+		var geoLocation = $("#geolocation").val();
 		var occupationDate = $("#occdate").val();
-		console.log( name + IDNumber + erfNo + geoLocation + occupationDate);
-		User.registerUser(name, IDNumber);
-		User.registerProperty(erfNo, geoLocation, IDNumber);
+		console.log( typeof(name) + typeof(IDNumber) + typeof(erfNo) + typeof(geoLocation) + typeof(occupationDate));
+		User.registerUser(name, IDNumber, {gas: 6721975000});
+		User.registerProperty(erfNo, geoLocation, {gas: 6721975000});
 
 });
 

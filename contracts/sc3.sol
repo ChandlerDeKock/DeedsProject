@@ -12,7 +12,7 @@ contract titleDeeds{
 
     struct propertyIdentifier {
        
-        uint erfNumber; //this replaces an ID #
+        string erfNumber; //this replaces an ID #
         string geoloc;
     }
 
@@ -24,7 +24,7 @@ contract titleDeeds{
         addressToUser[msg.sender] = _id;
     }
 
-    function registerProperty (uint _erfNumber, string memory _geoloc) public {
+    function registerProperty (string memory _erfNumber, string memory _geoloc) public {
        // require(msg.sender==users[_ownerIDnumber].userAddress);
         publicProperties.push(propertyIdentifier(_erfNumber, _geoloc));
 

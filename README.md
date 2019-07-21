@@ -1,16 +1,16 @@
 # DeedsProject
 
-##Ability to stake your land ownwership
+## Ability to stake your land ownwership
 
-###website hosted at:
+### Website hosted at:
 
  https://indeedhousing.netlify.com - the website may also not be up
  
- ##Project outline
+ ## Project outline
  
  The project used a bootsrapped front-end. The contracts are stored on an Ethereum smart contract which currently either connects to a Test net (Rinkeby) or a local instance of a blockchain.
  
- ##Getting started:
+ ## Getting started:
 
 1. Open the folder in your terminal or use your editors to navigate to the root directory of the project
 

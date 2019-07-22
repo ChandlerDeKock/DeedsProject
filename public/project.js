@@ -1,16 +1,21 @@
 
 //creating an instance of web3
 if (typeof web3 != "undefined"){
-	web3 = new Web3(web3.currentProvider);
+	 web3 = new Web3(web3.currentProvider);
 	console.log("metamask");
    } else {
 	   //currently using a local Ganache network for local testing
-	web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+	   const web3 = new HDWalletProvider(
+		'cpelican rally fog immune stuff cave payment vital diamond quantum corn follow',
+		'https://rinkeby.infura.io/orDImgKRzwNrVCDrAk5Q'
+	  );
 	console.log("not metamask");
    }
+   
    web3.eth.defaultAccount = web3.eth.accounts[0];
+   $("#startmetamask").click(ethereum.enable());
 
- 
+   
    //JSON representation of the contract -> need to fins a better way to import the document
    var userContract = web3.eth.contract([
 	{
@@ -114,7 +119,7 @@ if (typeof web3 != "undefined"){
 	}
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x296579531a3120cd1e6d14c538face9fe407add8");
+var User = userContract.at("0xEdE9ed0fDB27737A8211a0bad216d7Cd2d47853b");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -128,8 +133,18 @@ $("#createbutton").click(
 		var occupationDate = $("#occdate").val();
 		console.log( typeof(name) + typeof(IDNumber) + typeof(erfNo) + typeof(geoLocation) + typeof(occupationDate));
 		
-		User.registerUser(name, IDNumber, {gas: 6721975000});
-		User.registerProperty(erfNo, geoLocation, {gas: 6721975000});
+		User.registerUser(name, IDNumber, {gas: 6721975000}, function(error, result){
+			if(!error)
+				console.log(result);
+			else
+				console.error(error);
+		 });
+		User.registerProperty(erfNo, geoLocation, {gas: 6721975000}, function(error, result){
+			if(!error)
+				console.log(result);
+			else
+				console.error(error);
+		 });
 
 });
 

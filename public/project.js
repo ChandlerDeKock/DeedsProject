@@ -14,18 +14,36 @@ if (typeof web3 != "undefined"){
    //JSON representation of the contract -> need to fins a better way to import the document
    var userContract = web3.eth.contract([
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "getProperty",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_propertyIDtoTransfer",
-				"type": "uint256"
+				"name": "_erfNumber",
+				"type": "string"
 			},
 			{
-				"name": "transferTo",
-				"type": "uint256"
+				"name": "_geoloc",
+				"type": "string"
 			}
 		],
-		"name": "transfer",
+		"name": "registerProperty",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -77,48 +95,17 @@ if (typeof web3 != "undefined"){
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_erfNumber",
-				"type": "uint256"
-			},
-			{
-				"name": "_geoloc",
-				"type": "string"
-			},
-			{
-				"name": "_ownerIDnumber",
-				"type": "uint256"
-			}
-		],
-		"name": "registerProperty",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "properties",
+		"inputs": [],
+		"name": "getUser",
 		"outputs": [
 			{
-				"name": "erfNumber",
-				"type": "uint256"
-			},
-			{
-				"name": "geoloc",
+				"name": "",
 				"type": "string"
 			},
 			{
-				"name": "ownerIDnumber",
-				"type": "uint256"
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -127,7 +114,7 @@ if (typeof web3 != "undefined"){
 	}
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x5f8ff1c0cca4d0809d0a66ffefbc7c51ba2b4135");
+var User = userContract.at("0x296579531a3120cd1e6d14c538face9fe407add8");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -137,11 +124,12 @@ $("#createbutton").click(
 		var name = $("#occupantname").val();
 		var IDNumber = web3.sha3($("#idnumber").val());
 		var erfNo = $("#erfno").val();
-		var geoLocation = $("#gelocation").val();
+		var geoLocation = $("#geolocation").val();
 		var occupationDate = $("#occdate").val();
-		console.log( name + IDNumber + erfNo + geoLocation + occupationDate);
-		User.registerUser(name, IDNumber);
-		User.registerProperty(erfNo, geoLocation, IDNumber);
+		console.log( typeof(name) + typeof(IDNumber) + typeof(erfNo) + typeof(geoLocation) + typeof(occupationDate));
+		
+		User.registerUser(name, IDNumber, {gas: 6721975000});
+		User.registerProperty(erfNo, geoLocation, {gas: 6721975000});
 
 });
 

@@ -119,7 +119,7 @@ if (typeof web3 != "undefined"){
     }
   ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0xE21CBF2aA06A8BbF1e368e1aFC92298eB5206AAC");
+var User = userContract.at("0x036fA48D806CbCCedeD269051248119d3Ab3e4D8");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(

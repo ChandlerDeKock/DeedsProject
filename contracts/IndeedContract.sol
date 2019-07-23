@@ -1,5 +1,5 @@
 pragma solidity ^0.5.0;
-contract titleDeeds{
+contract IndeedContract{
 
 
     struct UserInfo {
@@ -11,14 +11,13 @@ contract titleDeeds{
     UserInfo[] public users;
 
     struct propertyIdentifier {
-       
         string erfNumber; 
         string geoloc;
     }
 
     propertyIdentifier[] publicProperties; 
-    mapping(address=> uint256) addressToUser;
-    mapping(address=> uint256) addressToProperty;
+    mapping(address=> uint256) public addressToUser;
+    mapping(address=> uint256) public addressToProperty;
     
     function registerUser(string memory _name, string memory _IDhash) public {
         uint256 _id = users.push(UserInfo(_name, msg.sender, _IDhash)) - 1;

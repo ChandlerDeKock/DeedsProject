@@ -119,7 +119,7 @@ if (typeof web3 != "undefined"){
     }
   ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0xEdE9ed0fDB27737A8211a0bad216d7Cd2d47853b");
+var User = userContract.at("0xE21CBF2aA06A8BbF1e368e1aFC92298eB5206AAC");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -133,13 +133,13 @@ $("#createbutton").click(
 		var occupationDate = $("#occdate").val();
 		console.log( typeof(name) + typeof(IDNumber) + typeof(erfNo) + typeof(geoLocation) + typeof(occupationDate));
 		
-		User.registerUser(name, IDNumber, {gas: 6721975000}, function(error, result){
+		User.registerUser(name, IDNumber, function(error, result){
 			if(!error)
 				console.log(result);
 			else
 				console.error(error);
 		 });
-		User.registerProperty(erfNo, geoLocation, {gas: 6721975000}, function(error, result){
+		User.registerProperty(erfNo, geoLocation, function(error, result){
 			if(!error)
 				console.log(result);
 			else

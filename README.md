@@ -6,6 +6,9 @@
 
  https://indeedhousing.netlify.com - the website may also not be up
  
+ ### Instance of the contract on Etherscan
+ https://rinkeby.etherscan.io/address/0xe21cbf2aa06a8bbf1e368e1afc92298eb5206aac#readContract
+ 
  ## Project outline
  
  The project used a bootsrapped front-end. The contracts are stored on an Ethereum smart contract which currently either connects to a Test net (Rinkeby) or a local instance of a blockchain.

@@ -1,0 +1,1 @@
+module.exports = 'pelican rally fog immune stuff cave payment vital diamond quantum corn follow'

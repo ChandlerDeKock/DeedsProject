@@ -64,6 +64,7 @@ function modules() {
   var jquery = gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
+
     ])
     .pipe(gulp.dest('./vendor/jquery'));
   // Simple Line Icons

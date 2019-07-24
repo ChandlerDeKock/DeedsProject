@@ -25,7 +25,7 @@ contract titleDeeds{
 
     //the ability to register a user
     function registerUser(string memory _name, string memory _IDhash) public {
-        uint256 _id = users.push(UserInfo(_name, msg.sender, _IDhash)) - 1;
+        uint256 _id = users.push(UserInfo(_name, msg.sender, _IDhash))-1;
         addressToUser[msg.sender] = _id;
     }
     //ability to register a property

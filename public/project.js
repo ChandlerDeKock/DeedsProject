@@ -40,6 +40,10 @@ var userContract = web3.eth.contract([
       {
         "name": "IDhash",
         "type": "string"
+      },
+      {
+        "name": "occupantDate",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -76,6 +80,26 @@ var userContract = web3.eth.contract([
     "signature": "0x710925a1"
   },
   {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "attestors",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xa77a9fdb"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -85,6 +109,10 @@ var userContract = web3.eth.contract([
       {
         "name": "_IDhash",
         "type": "string"
+      },
+      {
+        "name": "_occDate",
+        "type": "string"
       }
     ],
     "name": "registerUser",
@@ -92,7 +120,7 @@ var userContract = web3.eth.contract([
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0x1d2e4afd"
+    "signature": "0xd637dcfa"
   },
   {
     "constant": false,
@@ -125,7 +153,7 @@ var userContract = web3.eth.contract([
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
     "payable": false,
@@ -168,6 +196,10 @@ var userContract = web3.eth.contract([
       {
         "name": "",
         "type": "string"
+      },
+      {
+        "name": "",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -177,7 +209,7 @@ var userContract = web3.eth.contract([
   }
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0xa32Ff08f9125c0b77C0fE7E76dD9aBc3528B79e6");
+var User = userContract.at("0x9b14F26F7d87073594d068FD412Fa169332f8006");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -190,7 +222,7 @@ $("#createbutton").click(
     var occupationDate = $("#occdate").val();
     console.log(typeof (name) + typeof (IDNumber) + typeof (erfNo) + typeof (geoLocation) + typeof (occupationDate));
 
-    User.registerUser(name, IDNumber, function (error, result) {
+    User.registerUser(name, IDNumber, occupationDate, function (error, result) {
       if (!error)
         console.log(result);
       else
@@ -202,7 +234,7 @@ $("#createbutton").click(
       else
         console.error(error);
     });
-
+    alert("Please confirm the Metamask transaction to record your details")
   });
 
   $("#Results").click(
@@ -212,7 +244,7 @@ $("#createbutton").click(
       var userCall = User.getUser.call(function (error, result) {
         if (!error){
           userResult = result;
-          $("#ResultsUser").html("<strong>Your User details are:</strong> " + "Name: "+ userResult[0] + " and an ID Hash " + userResult[1]);
+          $("#ResultsUser").html( userResult[0] + " lives here and occupied the property on " + userResult[2] );
           console.log(result);
           
         }else{
@@ -222,7 +254,7 @@ $("#createbutton").click(
       var PropertyCall = User.getProperty.call(function (error, result) {
         if (!error){
           propertyResult = result;
-          $("#ResultsProperty").html("<strong>Your User details are:</strong> " + "PropErf: "+ propertyResult[0] + " geolocation " + propertyResult[1] + " and "  + propertyResult[2] + " attestation");
+          $("#ResultsProperty").html( "The property Erf number is "+ propertyResult[0] + " , its geolocation is " + propertyResult[1] + " and has "  + propertyResult[2] + " attestation");
           console.log(result);
           
         }else{
@@ -242,7 +274,7 @@ $("#createbutton").click(
         else
           console.error(error);
       });
-      alert("You are aboutto vouch to the property of " + attestAddress + ". Please confirm the metamask transaction to have it confirmed")
+      alert("You are about to vouch to the property of " + attestAddress + ". Please confirm the metamask transaction to have it confirmed. Also please note the transaction could take some time to process")
     }
   );
 

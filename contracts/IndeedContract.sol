@@ -11,10 +11,12 @@ pragma solidity ^0.5.0;
     ///@param name the name of the property holder
     ///@param userAddress the address that created the contract
     ///@param IDhash a unquie person identifier, for safety, please hash this number
+    ///@param occupantDate is the date the person took occupancy
     struct UserInfo {
             string name;
             address userAddress;
             string IDhash;
+            string occupantDate;
         }
 
     ///@notice store of all users in a public array
@@ -44,8 +46,8 @@ pragma solidity ^0.5.0;
      ///@param _name the name of the property holder
      ///@param _IDhash the hash of a unique identifier for a person (please hash)
      ///@dev Add a new user to the user array given the inputs  and then creates a mapping for the message sender to the position in the user array
-    function registerUser(string memory _name, string memory _IDhash) public {
-        uint256 _id = users.push(UserInfo(_name, msg.sender, _IDhash)) - 1;
+    function registerUser(string memory _name, string memory _IDhash, string memory _occDate) public {
+        uint256 _id = users.push(UserInfo(_name, msg.sender, _IDhash, _occDate)) - 1;
         addressToUser[msg.sender] = _id;
     }
 
@@ -75,9 +77,9 @@ pragma solidity ^0.5.0;
     }
 
     ///@notice ability to get a user given your address
-    ///@return two strings that identify the senders user details - this is the same details in the user struct
-    function getUser () public view returns (string memory, string memory) {
+    ///@return three strings that identify the senders user details as an array - this is the same details in the user struct
+    function getUser () public view returns (string memory, string memory, string memory) {
         uint256 propNum = addressToUser[msg.sender];
-        return(users[propNum].name, users[propNum].IDhash);
+        return(users[propNum].name, users[propNum].IDhash, users[propNum].occupantDate);
     }
 }

@@ -177,10 +177,16 @@ $("#createbutton").click(
 
   });
 
-  $("#Result").click(
+  $("#Results").click(
     function returnResult(){
-      var propResult = User.getProperty();
+      var propResult = User.getProperty(function (error, result) {
+        if (!error)
+          console.log(result);
+        else
+          console.error(error);
+      });
       console.log(propResult);
+      console.log("hello")
     }
   );
 

@@ -30,7 +30,7 @@ npm install
 ```
 4. Make sure you have a connection to an ETH blockain runnung. You can install Metamask or use Gananche. Please note that the contracts are still only on the Rinkeby testnet
 
-5. The 'gulpfile.js' is preconfigured to launch ansd intsance of the webpage. This will launch a local instance in your browswer and connect to the contract if you have your Web3 provider connected. To do this run the below command
+5. The `gulpfile.js` is preconfigured to launch ansd intsance of the webpage. This will launch a local instance in your browswer and connect to the contract if you have your Web3 provider connected. To do this run the below command
 ```
 nmp start
 ```

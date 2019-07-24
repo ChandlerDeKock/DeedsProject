@@ -1,5 +1,6 @@
 pragma solidity ^0.5.0;
 
+
     ///@title Indeed Contract
     ///@author Chandler De Kock, Iggy Phiri, Juliet Magagula
 
@@ -32,6 +33,9 @@ pragma solidity ^0.5.0;
     ///@notice store of all the properties in a public array
     propertyIdentifier[] public publicProperties;
 
+    ///@notice a list of all addresses that have attested
+    address[] public attestors;
+
     ///@notice mapping of users and properties - this mapping works by mapping the position the user is in their respective arrays to their address
     mapping(address=> uint256) addressToUser;
     mapping(address=> uint256) addressToProperty;
@@ -52,14 +56,15 @@ pragma solidity ^0.5.0;
     function registerProperty (string memory _erfNumber, string memory _geoloc) public {
         uint _id = publicProperties.push(propertyIdentifier(_erfNumber, _geoloc, 0)) - 1;
         addressToProperty[msg.sender] = _id;
+        attestors.push(msg.sender);
     }
     ///@notice a function to where a person can attest to the location and person living at a particular property
     ///@param _propertyOwner an address of the propeerty owner - this must be the address of the person who registered their address
     ///@dev incrementing the attestation number of a property given the address of the property owner
-    function attestToProperty (address _propertyOwner) public returns (uint){
+    function attestToProperty (address _propertyOwner) public returns (bool){
+        require (_propertyOwner != msg.sender, "You are the owner and cannot attest");
         uint propToAttest = addressToProperty[_propertyOwner];
         publicProperties[propToAttest].attestation++;
-        return publicProperties[propToAttest].attestation;
     }
 
     ///@notice ability to get a property given your address

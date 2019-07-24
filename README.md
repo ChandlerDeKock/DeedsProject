@@ -1,4 +1,4 @@
-# DeedsProject
+# Deeds Project
 
 ## Ability to stake your land ownwership
 

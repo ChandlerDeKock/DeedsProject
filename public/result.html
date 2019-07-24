@@ -24,18 +24,20 @@
   <body id = "body">
     <!-- Navigation -->
     <div class="topnav" id="myTopnav">
-        <a href="index.html">Home</a>
-        <a href="Create.html">Add a Resident</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-        <a href="result.html" class="active">Result</a>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="far fa-question-circle"></i> About</a>
+        <a href="Create.html"><i class="fas fa-file-contract"></i> Add a Resident</a>
+        <a href="result.html" class="active"><i class="fas fa-digital-tachograph"></i> Result</a>
+        <a href="contact.html"> <i class="fas fa-address-book"></i>Contact</a>
         </a>
       </div>
 
-
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <button  class="btn btn-block btn-primary" id="Results">Get results</button>
+          <a> Show the results</a>
+      </div>
 
      <!-- Footer -->
-  <footer class="footer bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
@@ -80,6 +82,11 @@
       </div>
     </div>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+  <script src = "project.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </head>

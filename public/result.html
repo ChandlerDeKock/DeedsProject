@@ -1,3 +1,7 @@
+
+
+    
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,41 +12,109 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Indeed</title>
+  <title>Indeed Results</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/allpages.css">
+  <script src="https://kit.fontawesome.com/391101a77e.js"></script>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+    type="text/css">
 
   <!-- Custom styles for this template -->
   <link href="css/landing-page.min.css" rel="stylesheet">
-  <body id = "body">
-    <!-- Navigation -->
-    <div class="topnav" id="myTopnav">
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="about.html"><i class="far fa-question-circle"></i> About</a>
-        <a href="Create.html"><i class="fas fa-file-contract"></i> Add a Resident</a>
-        <a href="result.html" class="active"><i class="fas fa-digital-tachograph"></i> Result</a>
-        <a href="contact.html"> <i class="fas fa-address-book"></i>Contact</a>
-        </a>
-      </div>
+
+</head>
+
+<body id="body">
+  <!-- Navigation -->
+  <!--<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="Create.html">Indeed Housing</a>
+      <a class="btn btn-primary" id = "Dark" href="#" >Dark Mode</a>
+    </div>-->
+
+  <div class="topnav" id="myTopnav" class="active">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="far fa-question-circle"></i> About</a>
+    <a href="Create.html"><i class="fas fa-file-contract"></i> Add a Resident</a>
+    <a href="result.html" class="active"><i class="fas fa-digital-tachograph"></i> Result</a>
+    <a href="contact.html" ></a><i class="fas fa-address-book"></i> Contact</a>
+    </a>
+  </div>
+  </div>
+
+  <!-- Contact Section -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/allpages.css">
+  <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Times new roman", sans-serif
+      }
+
+      .w3-row-padding img {
+        margin-bottom: 12px
+      }
+
+      /* Set the width of the sidebar to 120px */
+      .w3-sidebar {
+        width: 120px;
+        background: #222;
+      }
+
+      /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+      #main {
+        margin-left: 120px
+      }
+
+      /* Remove margins from "page content" on small screens */
+      @media only screen and (max-width: 600px) {
+        #main {
+          margin-left: 0
+        }
+      }
+    </style>
+    <div class="w3-padding-64 w3-content w3-text-black" class="w3-col-2" id="Contact">
+      <h1 class="w3-text-black">Get the details of your property</h1>
+      <hr style="width:200px" class="w3-opacity">
+      <h2 class="w2-text-black">Make sure you have your Metamask connected with the account you created your register with </h2>
+      <hr style="width:100px" class="w3-opacity">
+
+      <div class="w3-section">
+          <i class="fa fa-map-marker fa-fw w3-text-red w3-xxlarge w3-margin-right"></i><p id = "personnameresult"><strong>Persons name registred to the property:</strong> </p> 
+          <i class="fa fa-envelope fa-fw w3-text-brown  w3-xxlarge w3-margin-right"> </i><p id = "erfresult"> <strong>The ERF Number of the property: </strong></p>
+          <i class="fa fa-envelope fa-fw w3-text-brown  w3-xxlarge w3-margin-right"> </i><p id = "addressresult"> <strong>The ETH address of the property holder:  </strong></p>
+          <i class="fa fa-linkedin fa-fw w3-text-blue  w3-xxlarge w3-margin-right">  </i> <p id = "geolocationresult"><strong>Gelocation of the property:</strong></p>
+          <i class="fa fa-twitter fa-fw w3-text-blue w3-xxlarge w3-margin-right"> </i><p id = "attestationresult"><strong>Number of attestations:</strong>  </p>
+      </div><br>
+      <br>
+      <div></div>
+      
 
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <button  class="btn btn-block btn-primary" id="Results">Get results</button>
-        <div>
-          <a id = "ResultsUser"> Show the results</a>
-        </div>
-        <div>
-          <a id = "ResultsProperty"> Show the results</a>
-        </div>
       </div>
+  <!-- End Contact Section -->
+  </div>
 
-     <!-- Footer -->
+
+  </nav>
+  <footer class="footer bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
@@ -52,7 +124,7 @@
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Contact</a>
+              <a href="contact.html">Contact</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
@@ -87,11 +159,13 @@
       </div>
     </div>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-  <script src = "project.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="project.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  </body>
-</head>
+</body>
+
+</html>

@@ -212,7 +212,8 @@ $("#createbutton").click(
       var userCall = User.getUser.call(function (error, result) {
         if (!error){
           userResult = result;
-          $("#ResultsUser").html("<strong>Your User details are:</strong> " + "Name: "+ userResult[0] + " and an ID Hash " + userResult[1]);
+          $("#personnameresult").html("<strong>Persons name registred to the property: </strong>" +  userResult[0]);
+          
           console.log(result);
           
         }else{
@@ -222,7 +223,10 @@ $("#createbutton").click(
       var PropertyCall = User.getProperty.call(function (error, result) {
         if (!error){
           propertyResult = result;
-          $("#ResultsProperty").html("<strong>Your User details are:</strong> " + "PropErf: "+ propertyResult[0] + " geolocation " + propertyResult[1] + " and "  + propertyResult[2] + " attestation");
+          $("#erfresult").html("<strong>The ERF Number of the property: </strong> " + propertyResult[0]);
+          $("#addressresult").html("<strong>The ETH address of the property holder:  </strong>");
+          $("#geolocationresult").html("<strong>Gelocation of the property: </strong>" + propertyResult[1]);
+          $("#attestationresult").html("<strong>Number of attestations: </strong>" + propertyResult[2]);
           console.log(result);
           
         }else{

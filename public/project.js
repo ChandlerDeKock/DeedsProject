@@ -177,10 +177,17 @@ $("#createbutton").click(
 
   });
 
-  $("#Result").click(
-    function returnResult(){
-      var propResult = User.getProperty();
-      console.log(propResult);
+  $("#Results").click(
+     function returnResult(){
+      var userCall = User.getUser.call(function (error, result) {
+        if (!error){
+          userResult = result;
+          console.log(result);
+          $("#resultdisplay").html("<strong>Your User details are: </strong> " + "Name: "+ userResult[0] + "and a ID hash of " + userResult[1]);
+        }else{
+          console.error(error);
+        } 
+      });
     }
   );
 

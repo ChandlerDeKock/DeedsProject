@@ -36,6 +36,14 @@ module.exports = {
     //  gas: 10000000,
     //  gasLimit: 1000000000   // Any network (default: none)
     },
+    rinkeby: {
+      provider: function () {
+        return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/c2e0537863d849bdab8d41ee630e8d9d`);
+      },
+      network_id: 4,
+      gas: 4712388, // default = 4712388
+      gasPrice: 100000000000 // default = 100 gwei = 100000000000
+    },
   },
   mocha: {},
   // Configure your compilers

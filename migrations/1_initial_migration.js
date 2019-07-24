@@ -1,5 +1,6 @@
-const titleDeeds = artifacts.require("titleDeeds");
+var IndeedContract = artifacts.require("IndeedContract");
 
-module.exports = function(deployer) {
-  deployer.deploy(titleDeeds);
+module.exports = function (deployer) {
+    // Deploy the Indeed Contract
+    deployer.deploy(IndeedContract);
 };

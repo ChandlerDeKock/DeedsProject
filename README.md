@@ -18,17 +18,19 @@ The project is a system by where a person can use set a claim to a certain prope
  
  The project used a bootsrapped front-end. The contracts are stored on an Ethereum smart contract which currently either connects to a Test net (Rinkeby) or a local instance of a blockchain (i.e Ganache). In the live demo the front-end connects to a Rinkeby test net contract and proceeds to process the requests. In order to play around with the system, we recommend using Metamask as your Web# provider. 
  
- # Getting started with setting up the eviroment yourselef:
+ ##Getting started with setting up the eviroment yourself:
 
-1. Open the folder in your terminal or use your editors to navigate to the root directory of the project
+1. Clone the repository as always =)
 
-2. Install the package dependecies by running the following in the root folder of the project:
+2. Open the folder in your terminal or use your editors to navigate to the root directory of the project
+
+3. Install the package dependecies by running the following in the root folder of the project:
 ```
 npm install
 ```
-3. Make sure you have a connection to an ETH blockain runnung. You can install Metamask or use Gananche. Please note that the contracts are still only on the Rinkeby testnet
+4. Make sure you have a connection to an ETH blockain runnung. You can install Metamask or use Gananche. Please note that the contracts are still only on the Rinkeby testnet
 
-4. The 'gulpfile.js' is preconfigured to launch ansd intsance of the webpage. This will launch a local instance in your browswer and connect to the contract if you have your Web3 provider connected. To do this run the below command
+5. The 'gulpfile.js' is preconfigured to launch ansd intsance of the webpage. This will launch a local instance in your browswer and connect to the contract if you have your Web3 provider connected. To do this run the below command
 ```
 nmp start
 ```

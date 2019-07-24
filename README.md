@@ -4,11 +4,11 @@
 
 ### Website hosted at:
 
- https://indeedhousing.netlify.com - the website may also not be up
+ [Indeed Hosuing](https://indeedhousing.netlify.com) - the website may also not be up
  
 ### Instance of the contract on Etherscan
 
- https://rinkeby.etherscan.io/address/0xe21cbf2aa06a8bbf1e368e1afc92298eb5206aac#readContract
+ [Rinkeby testnet contract](https://rinkeby.etherscan.io/address/0xe21cbf2aa06a8bbf1e368e1afc92298eb5206aac#readContract)
  
 ## Project outline
 

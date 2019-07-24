@@ -22,7 +22,7 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  /*background: url("../img/Khayelisha6.jpg") no-repeat center center;*/
+  background: url("../img/Khayelisha2.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -106,7 +106,7 @@ header.masthead h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("../img/Khayelisha5.jpg") no-repeat center center;
+  background: url("../img/Khayelisha2.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
@@ -116,7 +116,7 @@ header.masthead h1 {
   position: absolute;
   background-color: #212529;
   height: 100%;
-  width: 100%;
+  width: 50%;
   top: 0;
   left: 0;
   opacity: 0.3;

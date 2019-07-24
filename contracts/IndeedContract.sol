@@ -22,9 +22,11 @@ pragma solidity ^0.5.0;
     ///@notice information of the registred property
     ///@param erfNumber is the erfNumber the property is registeretd to - set tto zero if the property does nott have an ERF number
     ///@param geoloc is the geocordinates of the property stored as a string
+    ///@param attestation a number restenating the numnber of people who have attested to the property - initalised to 0
     struct propertyIdentifier {
             string erfNumber;
             string geoloc;
+            uint attestation;
         }
 
     ///@notice store of all the properties in a public array
@@ -48,15 +50,23 @@ pragma solidity ^0.5.0;
     ///@param _geoloc gelolocation of the property stored as a string
     ///@dev Add a new property to the proprty array given the inputs  and then creates a mapping for the message sender to the position in the array
     function registerProperty (string memory _erfNumber, string memory _geoloc) public {
-        uint _id = publicProperties.push(propertyIdentifier(_erfNumber, _geoloc)) - 1;
+        uint _id = publicProperties.push(propertyIdentifier(_erfNumber, _geoloc, 0)) - 1;
         addressToProperty[msg.sender] = _id;
+    }
+    ///@notice a function to where a person can attest to the location and person living at a particular property
+    ///@param _propertyOwner an address of the propeerty owner - this must be the address of the person who registered their address
+    ///@dev incrementing the attestation number of a property given the address of the property owner
+    function attestToProperty (address _propertyOwner) public returns (uint){
+        uint propToAttest = addressToProperty[_propertyOwner];
+        publicProperties[propToAttest].attestation++;
+        return publicProperties[propToAttest].attestation;
     }
 
     ///@notice ability to get a property given your address
     ///@return two strings that identify the senders property - this is the same details as the property struct
-    function getProperty () public view returns (string memory, string memory) {
+    function getProperty () public view returns (string memory, string memory, uint) {
         uint256 propNum = addressToProperty[msg.sender];
-        return(publicProperties[propNum].erfNumber, publicProperties[propNum].geoloc);
+        return(publicProperties[propNum].erfNumber, publicProperties[propNum].geoloc, publicProperties[propNum].attestation);
     }
 
     ///@notice ability to get a user given your address

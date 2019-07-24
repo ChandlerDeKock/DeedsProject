@@ -64,6 +64,10 @@ var userContract = web3.eth.contract([
       {
         "name": "geoloc",
         "type": "string"
+      },
+      {
+        "name": "attestation",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -110,6 +114,26 @@ var userContract = web3.eth.contract([
     "signature": "0x1b0f8ea8"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_propertyOwner",
+        "type": "address"
+      }
+    ],
+    "name": "attestToProperty",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x6bcace58"
+  },
+  {
     "constant": true,
     "inputs": [],
     "name": "getProperty",
@@ -121,6 +145,10 @@ var userContract = web3.eth.contract([
       {
         "name": "",
         "type": "string"
+      },
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -149,7 +177,7 @@ var userContract = web3.eth.contract([
   }
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0x584b2eEefa704a56abcbD69199c43a584338CA6c");
+var User = userContract.at("0xa32Ff08f9125c0b77C0fE7E76dD9aBc3528B79e6");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -179,15 +207,42 @@ $("#createbutton").click(
 
   $("#Results").click(
      function returnResult(){
+      var propertyResult;
+      var userResult;
       var userCall = User.getUser.call(function (error, result) {
         if (!error){
           userResult = result;
+          $("#ResultsUser").html("<strong>Your User details are:</strong> " + "Name: "+ userResult[0] + " and an ID Hash " + userResult[1]);
           console.log(result);
-          $("#resultdisplay").html("<strong>Your User details are: </strong> " + "Name: "+ userResult[0] + "and a ID hash of " + userResult[1]);
+          
         }else{
           console.error(error);
         } 
       });
+      var PropertyCall = User.getProperty.call(function (error, result) {
+        if (!error){
+          propertyResult = result;
+          $("#ResultsProperty").html("<strong>Your User details are:</strong> " + "PropErf: "+ propertyResult[0] + " geolocation " + propertyResult[1] + " and "  + propertyResult[2] + " attestation");
+          console.log(result);
+          
+        }else{
+          console.error(error);
+        } 
+      });
+      
+    }
+  );
+  $("#attestbutton").click(
+    function attestationJS (){
+
+      var attestAddress = $("#attest").val()
+      User.attestToProperty(attestAddress,function (error, result) {
+        if (!error)
+          console.log(result);
+        else
+          console.error(error);
+      });
+      alert("You are aboutto vouch to the property of " + attestAddress + ". Please confirm the metamask transaction to have it confirmed")
     }
   );
 

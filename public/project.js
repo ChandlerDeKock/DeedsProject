@@ -40,6 +40,10 @@ var userContract = web3.eth.contract([
       {
         "name": "IDhash",
         "type": "string"
+      },
+      {
+        "name": "occupancyDate",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -85,6 +89,10 @@ var userContract = web3.eth.contract([
       {
         "name": "_IDhash",
         "type": "string"
+      },
+      {
+        "name": "_occDate",
+        "type": "string"
       }
     ],
     "name": "registerUser",
@@ -92,7 +100,7 @@ var userContract = web3.eth.contract([
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0x1d2e4afd"
+    "signature": "0xd637dcfa"
   },
   {
     "constant": false,
@@ -168,6 +176,10 @@ var userContract = web3.eth.contract([
       {
         "name": "",
         "type": "string"
+      },
+      {
+        "name": "",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -177,11 +189,12 @@ var userContract = web3.eth.contract([
   }
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0xa32Ff08f9125c0b77C0fE7E76dD9aBc3528B79e6");
+var User = userContract.at("0xb053DDF4b148D02df6EEf9e44E00882621E754Be");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
   function createNewDeed() {
+    alert("You are about to register your property details all seems in order. Confirm the MetaMask transaction and then navigate to the results page")
     // get the basic information for a return test
     var name = $("#occupantname").val();
     var IDNumber = web3.sha3($("#idnumber").val());
@@ -190,7 +203,7 @@ $("#createbutton").click(
     var occupationDate = $("#occdate").val();
     console.log(typeof (name) + typeof (IDNumber) + typeof (erfNo) + typeof (geoLocation) + typeof (occupationDate));
 
-    User.registerUser(name, IDNumber, function (error, result) {
+    User.registerUser(name, IDNumber, occupationDate,function (error, result) {
       if (!error)
         console.log(result);
       else
@@ -213,7 +226,8 @@ $("#createbutton").click(
         if (!error){
           userResult = result;
           $("#personnameresult").html("<strong>Persons name registred to the property: </strong>" +  userResult[0]);
-          
+          $("#occdatereesult").html(" <strong>Date the property has been occupied since:  </strong> " + userResult[2]);
+          $("#addressresult").html("<strong>Your unique ID of the property holder:  </strong> " + + userResult[1]);
           console.log(result);
           
         }else{
@@ -224,9 +238,11 @@ $("#createbutton").click(
         if (!error){
           propertyResult = result;
           $("#erfresult").html("<strong>The ERF Number of the property: </strong> " + propertyResult[0]);
-          $("#addressresult").html("<strong>The ETH address of the property holder:  </strong>");
+         
           $("#geolocationresult").html("<strong>Gelocation of the property: </strong>" + propertyResult[1]);
           $("#attestationresult").html("<strong>Number of attestations: </strong>" + propertyResult[2]);
+         
+        
           console.log(result);
           
         }else{

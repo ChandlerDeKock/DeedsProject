@@ -10975,7 +10975,7 @@ height: 53px;
 }
 .year-container .table>tbody>tr>td a:hover{
   color: #ff8c6a;
-  text-decoration: underline !importantsss;
+  text-decoration: underline importantsss;
 }
 /*.year-container .table>tbody>tr>td li{
   list-style: url(../img/roadmap-2-dot.png);

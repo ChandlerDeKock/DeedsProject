@@ -189,7 +189,7 @@ var userContract = web3.eth.contract([
   }
 ]);
 //the address where the deployed contract is housed -> will need to autocreate this
-var User = userContract.at("0xb053DDF4b148D02df6EEf9e44E00882621E754Be");
+var User = userContract.at("0xd79cab11dd8Df80340dA235e4353E14D1929a640");
 
 //on the Create HTMP page the create button will create a new user and register the property information.
 $("#createbutton").click(
@@ -265,12 +265,3 @@ $("#createbutton").click(
       alert("You are aboutto vouch to the property of " + attestAddress + ". Please confirm the metamask transaction to have it confirmed")
     }
   );
-
-// var userEvent = User.geoChanged({fromBlock: 'latest'});
-// userEvent.watch(function(error, result){
-//     if(!error){
-//         alert(result.args.lat);
-//     }else{
-//         console.log(error);
-//     }
-// }); 
